@@ -14,6 +14,7 @@ import javax.ws.rs.QueryParam;
 import org.knowm.xchange.Exchange;
 import org.knowm.xchange.cryptocompare.Cryptocompare;
 import org.knowm.xchange.cryptocompare.CryptocompareExchange;
+import org.knowm.xchange.cryptocompare.dto.marketdata.CryptocompareExchangeData;
 import org.knowm.xchange.cryptocompare.dto.marketdata.CryptocompareHistory;
 import org.knowm.xchange.cryptocompare.dto.marketdata.CryptocompareOHLCV;
 import org.knowm.xchange.currency.CurrencyPair;
@@ -185,5 +186,22 @@ public class CryptocompareMarketDataServiceRaw extends CryptocompareBaseService 
 
 		return new ArrayList<CryptocompareOHLCV>(mapData.values()); 
 	}
+	
+	
+	  /**
+	    * Get exchange data: list of exchanges and the coins pairs for which data is available
+	    * 
+	   * 
+	   * @return
+	   * @throws IOException
+	   */
+	  public CryptocompareExchangeData getCryptocompareExchangeData() 
+			  throws IOException {
+
+	    // Request data
+		  CryptocompareExchangeData exchangeData = proxy.getAllExchangeData();	    		
+
+	    return exchangeData;
+	  }
 
 }

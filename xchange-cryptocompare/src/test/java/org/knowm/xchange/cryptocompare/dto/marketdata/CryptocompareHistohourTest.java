@@ -14,14 +14,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * Test cryptocompareHistohour JSON parsing
  */
-public class CyryptocompareHistohourTest {
+public class CryptocompareHistohourTest {
 
   @Test
   public void testUnmarshal() throws IOException {
 
     // Read in the JSON from the example resources
 	  
-    InputStream is = CyryptocompareHistohourTest.class.getResourceAsStream("/marketdata/cryptocompare-histohour-data.json");
+    InputStream is = CryptocompareHistohourTest.class.getResourceAsStream("/marketdata/cryptocompare-histohour-data.json");
 
     // Use Jackson to parse it
     

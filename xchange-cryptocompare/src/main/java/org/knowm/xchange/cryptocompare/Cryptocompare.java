@@ -8,6 +8,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+import org.knowm.xchange.cryptocompare.dto.marketdata.CryptocompareExchangeData;
 import org.knowm.xchange.cryptocompare.dto.marketdata.CryptocompareHistory;
 
 /**
@@ -19,8 +20,8 @@ import org.knowm.xchange.cryptocompare.dto.marketdata.CryptocompareHistory;
 @Path("/")
 @Produces(MediaType.APPLICATION_JSON)
 public interface Cryptocompare {
-// eg https://min-api.cryptocompare.com/data/histohour?fsym=ETH&tsym=BTC&limit=1&aggregate=1&toTs=1452680400&e=CCCAGG
-
+	
+  // eg https://min-api.cryptocompare.com/data/histohour?fsym=ETH&tsym=BTC&limit=1&aggregate=1&toTs=1452680400&e=CCCAGG
   @GET
   @Path("data/histohour")
   CryptocompareHistory getHourHistory(
@@ -31,5 +32,12 @@ public interface Cryptocompare {
 		  @QueryParam("toTs") Long toTs,
 		  @QueryParam("aggregate") Integer aggregate 
 		  ) throws IOException;
+  
+  
+  // eg https://min-api.cryptocompare.com/data/all/exchanges  
+  @GET
+  @Path("data/all/exchanges")
+  CryptocompareExchangeData getAllExchangeData()
+		  throws IOException;
 
 }

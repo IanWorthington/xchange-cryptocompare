@@ -1,6 +1,7 @@
 package org.knowm.xchange.cryptocompare.dto.marketdata;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -51,5 +52,8 @@ public final class CryptocompareOHLCV {
 	  this.volumeTo = volumeTo;
   }
 
+  public Instant getInstant() {
+	  return Instant.ofEpochSecond(timestamp);
+  }
 
 }
